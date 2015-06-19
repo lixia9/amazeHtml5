@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>laytpl</title>
+	</head>
+
+	<body>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../google-code-prettify/prettify.css" />
+		<style>
+			* {
+				font-family: "微软雅黑";
+			}
+		</style>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<div class="container">
+			<div class="projects-header page-header">
+				<h2>layer</h2>
+				<p>layer兼容了包括IE6在内的所有主流浏览器。 她数量可观的接口，使得您可以自定义太多您需要的风格，每一种弹层模式各具特色</p>
+			</div>
+			<div id="view"></div>
+			<hr />	
+			<h3>使用方法</h3>
+			<pre class="prettyprint">
+   &lt;!-- layer.js 核心 JavaScript 文件 --&gt;
+   &lt;script src="layer.js"&gt;&lt;/script&gt;
+</pre>
+			<a href="layer.js" target="_blank" style="text-decoration: none; float: right;"><span class="btn-success" style="padding: 5px;">点击下载</span></a>
+			<div style="clear: both;"></div>
+			<hr />
+			<h3>才艺展示</h3>
+			<button class="btn-primary" id="btn_eg1">点击我看看</button>
+			<button class="btn-primary" id="btn_eg2">提示层</button>
+			<button class="btn-primary" id="btn_eg3">换个衣服给你看看</button>
+			<button class="btn-primary" id="btn_eg4">确认层</button>
+			<button class="btn-primary" id="btn_eg5">遮罩层</button>
+			<button class="btn-primary" id="btn_eg6">tips</button>
+			<hr />
+			<h3>具体说明</h3>
+			<pre class="prettyprint">
+ 特别说明：事件需自己绑定，以下只展现调用代码。
+//初体验
+layer.alert('内容')
+
+//第三方扩展皮肤
+layer.alert('内容', {
+    icon: 1,
+    skin: 'layer-ext-moon' //该皮肤由layer.seaning.com友情扩展。关于皮肤的扩展规则，去这里查阅
+})
+
+//询问框
+layer.confirm('您是如何看待前端开发？', {
+    btn: ['重要','奇葩'], //按钮
+    shade: false //不显示遮罩
+}, function(){
+    layer.msg('的确很重要', {icon: 1});
+}, function(){
+    layer.msg('奇葩么么哒', {shift: 6});
+});
+
+//提示层
+layer.msg('玩命提示中');
+
+//墨绿深蓝风
+layer.alert('墨绿风格，点击确认看深蓝', {
+    skin: 'layui-layer-molv' //样式类名
+}, function(){
+    layer.alert('偶吧深蓝style', {
+        skin: 'layui-layer-lan',
+        shift: 4 //动画类型
+    });
+});
+
+//捕获页
+layer.open({
+    type: 1,
+    shade: false,
+    title: false, //不显示标题
+    content: $('.layer_notice'), //捕获的元素
+    cancel: function(index){
+        layer.close(index);
+        this.content.show();
+        layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构',{time: 5000});
+    }
+});
+
+//页面层
+layer.open({
+    type: 1,
+    skin: 'layui-layer-rim', //加上边框
+    area: ['420px', '240px'], //宽高
+    content: 'html内容'
+});
+
+//自定页
+layer.open({
+    type: 1,
+    skin: 'layui-layer-demo', //样式类名
+    closeBtn: false, //不显示关闭按钮
+    shift: 2,
+    shadeClose: true, //开启遮罩关闭
+    content: '内容'
+});
+
+//tips层
+layer.tips('Hi，我是tips', '吸附元素选择器，如#id');
+
+//iframe层
+layer.open({
+    type: 2,
+    title: 'layer mobile页',
+    shadeClose: true,
+    shade: 0.8,
+    area: ['380px', '90%'],
+    content: 'http://layer.layui.com/mobile/' //iframe的url
+}); 
+
+//iframe窗
+layer.open({
+    type: 2,
+    title: false,
+    closeBtn: false,
+    shade: [0],
+    area: ['340px', '215px'],
+    offset: 'rb', //右下角弹出
+    time: 2000, //2秒后自动关闭
+    shift: 2,
+    content: ['test/guodu.html', 'no'], //iframe的url，no代表不显示滚动条
+    end: function(){ //此处用于演示
+        layer.open({
+            type: 2,
+            title: '很多时候，我们想最大化看，比如像这个页面。',
+            shadeClose: true,
+            shade: false,
+            maxmin: true, //开启最大化最小化按钮
+            area: ['640px', '450px'],
+            content: 'http://www.layui.com'
+        });
+    }
+});
+
+//加载层
+var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+
+//loading层
+var index = layer.load(1, {
+    shade: [0.1,'#fff'] //0.1透明度的白色背景
+});
+
+//小tips
+layer.tips('我是另外一个tips，只不过我长得跟之前那位稍有些不一样。', '吸附元素选择器', {
+    tips: [1, '#3595CC'],
+    time: 4000
+});
+
+//prompt层
+layer.prompt({
+    title: '输入任何口令，并确认',
+    formType: 1 //prompt风格，支持0-2
+}, function(pass){
+    layer.prompt({title: '随便写点啥，并确认', formType: 2}, function(text){
+        layer.msg('演示完毕！您的口令：'+ pass +' 您最后写下了：'+ text);
+    });
+});
+
+//tab层
+layer.tab({
+    area: ['600px', '300px'],
+    tab: [{
+        title: 'TAB1', 
+        content: '内容1'
+    }, {
+        title: 'TAB2', 
+        content: '内容2'
+    }, {
+        title: 'TAB3', 
+        content: '内容3'
+    }]
+});
+
+//相册层
+$.getJSON('test/photos.json?v='+new Date, function(json){
+    layer.photos({
+        photos: json //格式见API文档手册页
+    });
+});
+
+    
+       </pre>
+		</div>
+
+		<script>
+			$(window).load(function() {
+				$("pre").addClass("prettyprint");
+				prettyPrint();
+				$("#btn_eg1").on("click", function() {
+					layer.alert('内容');
+				});
+				$("#btn_eg2").on("click", function() {
+					layer.msg('玩命提示中');
+				});
+				$("#btn_eg3").on("click", function() {
+					//墨绿深蓝风
+					layer.alert('墨绿风格，点击确认看深蓝', {
+						skin: 'layui-layer-molv', //样式类名
+						shift: 1 //动画类型
+					}, function() {
+						layer.alert('偶吧深蓝style', {
+							skin: 'layui-layer-lan',
+							shift: 2 //动画类型
+						});
+					});
+				});
+				$("#btn_eg4").on("click", function() {
+					layer.confirm('您是如何看待前端开发？', {
+						btn: ['重要', '奇葩'], //按钮
+						shade: false //不显示遮罩
+					}, function() {
+						layer.msg('的确很重要', {
+							icon: 1
+						});
+					}, function() {
+						layer.msg('奇葩么么哒', {
+							shift: 6
+						});
+					});
+				});
+				$("#btn_eg5").on("click", function() {
+					layer.open({
+						type: 1,
+						skin: 'layui-layer-rim', //加上边框
+						area: ['420px', '240px'], //宽高
+						content: 'html内容'
+					});
+				});
+				$("#btn_eg6").on("click", function() {
+					layer.tips('我勒个擦比较好使,样子可以随便修改', '#btn_eg6', {
+						tips: [1, '#3595CC'],
+						time: 4000
+					});
+				});
+			})
+		</script>
+	</body>
+
+</html>

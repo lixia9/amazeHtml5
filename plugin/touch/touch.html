@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" name="viewport" />
+		<title></title>
+	</head>
+	<script src="touch-0.2.14.min.js"></script>
+
+	<body>
+		<img id="target" src="../layer/skin/default/icon.png"  width="50%"/>
+	</body>
+	<script type="text/javascript">
+		var target = document.getElementById("target");
+		target.style.webkitTransition = 'all ease 0.05s';
+		touch.on('#target', 'touchstart', function(ev) {
+			ev.preventDefault();
+		});
+		var initialScale = 1;
+		var currentScale;
+		touch.on('#target', 'pinchend', function(ev) {
+			currentScale = ev.scale - 1;
+			currentScale = initialScale + currentScale;
+			currentScale = currentScale > 2 ? 2 : currentScale;
+			currentScale = currentScale < 1 ? 1 : currentScale;
+			this.style.webkitTransform = 'scale(' + currentScale + ')';
+			log("当前缩放比例为:" + currentScale + ".");
+		});
+		touch.on('#target', 'pinchend', function(ev) {
+			initialScale = currentScale;
+		});
+	</script>
+
+</html>

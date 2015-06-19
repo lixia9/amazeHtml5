@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>laytpl</title>
+	</head>
+
+	<body>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../google-code-prettify/prettify.css" />
+		<style>
+			* {
+				font-family: "微软雅黑";
+			}
+		</style>
+		<script src="laytpl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<div class="container">
+			<div class="projects-header page-header">
+				<h2>laytpl</h2>
+				<p>laytpl是一款颠覆性的JavaScript模板引擎，它用巧妙的实现方式，将自身的体积变得小巧玲珑，不仅性能接近极致，并且还具备传统js引擎的几乎所有功能。所有的变身魔法都由不到2KB的代码创造</p>
+			</div>
+			<div id="view"></div>
+			<hr />
+			<h3>使用方法</h3>
+			<pre class="prettyprint">
+   &lt;!-- laytpl.js 核心 JavaScript 文件 --&gt;
+   &lt;script src="laytpl.js"&gt;&lt;/script&gt;
+</pre>
+			<a href="laytpl.js" target="_blank" style="text-decoration: none; float: right;"><span class="btn-success" style="padding: 5px;">点击下载</span></a>
+			<div style="clear: both;"></div>
+        <hr />
+        <h3>具体说明</h3>
+        <pre class="prettyprint">
+ 一、模版语法
+输出一个普通字段，不转义html：   {{ d.field }}
+输出一个普通字段，并转义html：   {{= d.field }}
+JavaScript脚本： {{# JavaScript statement }}
+
+二、内置方法
+1)：laytpl(template);   //核心函数，返回一个对象
+    
+    var tpl = laytpl(template);
+    tpl.render(data, callback);   //渲染方法，返回渲染结果，支持异步和同步两种模式
+        a)：异步
+        tpl.render(data, function(result){
+            console.log(result);
+        });
+        
+        b)：同步
+        var result = tpl.render(data);
+        console.log(result);
+
+    
+2)：laytpl.config(options); //初始化配置
+    options是一个对象
+    {open: '开始标签', close: '闭合标签'}
+    
+3)：laytpl.v    //获取版本号
+       </pre>
+		</div>
+
+		<script id="demo" type="text/html">
+
+			<h3>{{ d.title }}</h3>
+			<ul>
+				{{# for(var i = 0, len = d.list.length; i
+				< len; i++){ }} <p>
+					<span>姓名：{{ d.list[i].name }}</span>
+					<span>球队：{{ d.list[i].city }}</span>
+					</p>
+					{{# } }}
+			</ul>
+		</script>
+
+		<script>
+			 //第三步：渲染模版
+			var data = {
+				title: '我是案例',
+				list: [{
+					name: '科比',
+					city: '洛杉矶湖人'
+				}, {
+					name: '詹姆斯',
+					city: '克利夫兰骑士'
+				}, {
+					name: '姚明',
+					city: '休斯顿火箭'
+				}, {
+					name: '邓肯',
+					city: '圣安东尼奥马刺'
+				}]
+			};
+			var gettpl = document.getElementById('demo').innerHTML;
+			laytpl(gettpl).render(data, function(html) {
+				document.getElementById('view').innerHTML = html;
+			});
+			$(window).load(function() {
+				$("pre").addClass("prettyprint");
+				prettyPrint();
+			})
+		</script>
+	</body>
+
+</html>

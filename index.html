@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>AmazeHtml5</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<style>
+		* {
+			font-family: "微软雅黑";
+		}
+		.thumbnail {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			max-width: 310px;
+			margin-bottom: 30px;
+			border-radius: 5;
+		}
+		.caption {
+			height: 200px;
+			overflow-y: hidden;
+			color: #555;
+		}
+		.con {
+			margin-top: 64px;
+		}
+		.content-title {
+			width: 100%;
+			height: 150px;
+			background-color: #23527C;
+			border-radius: 5px;
+		}
+		.content-title span {
+			display: inline-block;
+			line-height: 150px;
+			font-size: 18px;
+			font-weight: 800;
+			color: white;
+		}
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">AmazeHtml5</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right ">
+						<li><a href="#">关于我们</a>
+						</li>
+						<li><a href="#">联系我们</a>
+						</li>
+						<li><a href="#">广告招聘</a>
+						</li>
+						<li><a href="#">求助我们</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container con">
+			<div class="jumbotron masthead" style="background-image: url(img/indexBg.jpg); background-repeat: no-repeat;background-size: 100%;">
+				<div class="container">
+					<h1 style="color: white;">AmazeHtml5</h1>
+					<h2 style="color: whitesmoke">人生简单些更好，不需要把一切搞得复杂</h2>
+					<h5 style="color: whitesmoke">---你们有了爱，便不该有恨，因为曾经有爱</h5>
+					<h5 style="color: white; float: right;">向日夜奋斗的前端工程师致敬</h5>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-lg-3 ">
+					<div class="thumbnail" style="height: 334px;">
+						<a href="plugin/laytpl/laytpl.html" target="_blank" title="JavaScript模板引擎">
+							<div class="content-title">
+								<span>JavaScript模板引擎</span>
+							</div>
+						</a>
+						<div class="caption">
+							<h3> 
+                <a href="plugin/laytpl/laytpl.html" title="" target="_blank" onclick="">laytpl.js模板引擎<br><small>by @贤心</small></a>
+              </h3>
+							<p>
+								laytpl是一款颠覆性的JavaScript模板引擎
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 ">
+					<div class="thumbnail" style="height: 334px;">
+						<a href="plugin/layer/layer.html" target="_blank" title="JavaScript弹出层layer">
+							<div class="content-title" style="background-color: #5FB878; ">
+								<span>JavaScript弹出层layer</span>
+							</div>
+						</a>
+						<div class="caption">
+							<h3> 
+                <a href="plugin/layer/layer.html" title="" target="_blank" onclick="">layer 好用的Js弹出层<br><small>by @贤心</small></a>
+              </h3>
+							<p>
+								layer是一款近年来口碑极佳的web弹层组件
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 ">
+					<div class="thumbnail" style="height: 334px;">
+						<a href="plugin/layer/layer.html" target="_blank" title="Touch.js ">
+							<div class="content-title" style="background-color:brown;">
+								<span>Touch.js 手势插件</span>
+							</div>
+						</a>
+						<div class="caption">
+							<h3> 
+                <a href="plugin/layer/layer.html" title="" target="_blank" onclick="">Touch.js原生触摸<br><small>by @百度团队</small></a>
+              </h3>
+							<p>
+								原生出色的加速度感知与缓动效果,优秀的单指旋转手势
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/q.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+	<script type="text/javascript">
+		var animatedArray = ["wobble", "flash", "bounce", "rubberBand", "shake", "swing", "tada", "bounceIn", "rotate"];
+		var I = 0;
+
+		function testAnim(o) {
+			$(o).removeClass().addClass(animatedArray[I] + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+				$(this).removeClass();
+			});
+		};
+		$(function() {
+				$(".thumbnail").hover(function() {
+					I = parseInt(8 * Math.random());
+					testAnim($(this).children()[1]);
+				}, function() {})
+			})
+			//		function hashchange() {
+			//			if (('onhashchange' in window) && ((typeof document.documentMode === 'undefined') || document.documentMode == 8)) {     // 浏览器支持onhashchange事件
+			//				    
+			//				window.onhashchange = hashChangeFire;  // TODO，对应新的hash执行的操作函数
+			//			} else {     // 不支持则用定时器检测的办法
+			//				    
+			//				setInterval(function() {        
+			//					var ischanged = isHashChanged();  // TODO，检测hash值或其中某一段是否更改的函数
+			//					        
+			//					if (ischanged) {            
+			//						hashChangeFire();  // TODO，对应新的hash执行的操作函数
+			//						        
+			//					}    
+			//				}, 150);
+			//			}
+			//		};
+			//		hashchange();
+			//
+			//		function hashChangeFire() {
+			//			
+			//		}
+			//ajax 路由跳转支持IE6以上
+			//		Q.reg('a', function() {
+			//			alert()
+			//		});
+			//		Q.init({
+			//			index: 'home' /* 首页地址 */
+			//		});
+	</script>
+
+</html>
