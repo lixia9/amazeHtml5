@@ -3,6 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>laytpl</title>
 	</head>
 
@@ -65,12 +66,12 @@ JavaScript脚本： {{# JavaScript statement }}
 
 		<script id="demo" type="text/html">
 
-			<h3>{{ d.title }}</h3>
+			<h3>{{ data.title }}</h3>
 			<ul>
-				{{# for(var i = 0, len = d.list.length; i
+				{{# for(var i = 0, len = data.list.length; i
 				< len; i++){ }} <p>
-					<span>姓名：{{ d.list[i].name }}</span>
-					<span>球队：{{ d.list[i].city }}</span>
+					<span>姓名：{{ data.list[i].name }}</span>
+					<span>球队：{{ data.list[i].city }}</span>
 					</p>
 					{{# } }}
 			</ul>

@@ -87,7 +87,7 @@
 		</nav>
 
 		<div class="container con">
-			<div class="jumbotron masthead" style="background-image: url(img/indexBg.jpg); background-repeat: no-repeat;background-size: 100%;">
+			<div class="jumbotron masthead" style="background-image: url(img/indexBg.jpg); background-repeat: repeat-y;background-size: 100%;">
 				<div class="container">
 					<h1 style="color: white;">AmazeHtml5</h1>
 					<h2 style="color: whitesmoke">人生简单些更好，不需要把一切搞得复杂</h2>
@@ -134,17 +134,88 @@
 
 				<div class="col-sm-6 col-md-4 col-lg-3 ">
 					<div class="thumbnail" style="height: 334px;">
-						<a href="plugin/layer/layer.html" target="_blank" title="Touch.js ">
+						<a href="plugin/touch/touch.html" target="_blank" title="Touch.js ">
 							<div class="content-title" style="background-color:brown;">
 								<span>Touch.js 手势插件</span>
 							</div>
 						</a>
 						<div class="caption">
 							<h3> 
-                <a href="plugin/layer/layer.html" title="" target="_blank" onclick="">Touch.js原生触摸<br><small>by @百度团队</small></a>
+                <a href="plugin/touch/touch.html" title="" target="_blank" onclick="">Touch.js原生触摸<br><small>by @百度团队</small></a>
               </h3>
 							<p>
 								原生出色的加速度感知与缓动效果,优秀的单指旋转手势
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 ">
+					<div class="thumbnail" style="height: 334px;">
+						<a href="plugin/touch/touch.html" target="_blank" title="Swiper.js ">
+							<div class="content-title" style="background-color:goldenrod;">
+								<span>Swiper.js 滑动插件</span>
+							</div>
+						</a>
+						<div class="caption">
+							<h3> 
+                <a href="plugin/touch/touch.html" title="" target="_blank" onclick="">Swiper.js最酷滑动<br><small>by @XXX</small></a>
+              </h3>
+							<p>
+								Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 col-md-4 col-lg-3 ">
+					<div class="thumbnail" style="height: 334px;">
+						<a href="plugin/touch/touch.html" target="_blank" title="Swiper.js ">
+							<div class="content-title" style="background-color:#2B542C;">
+								<span>Pajx.js </span>
+							</div>
+						</a>
+						<div class="caption">
+							<h3> 
+                <a href="plugin/touch/touch.html" title="" target="_blank" onclick="">Pajx.js<br><small>by @XXX</small></a>
+              </h3>
+							<p>
+								HTML5里引用了新的API，history.pushState和history.replaceState，就是通过这个接口做到无刷新改变页面URL的。
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 col-md-4 col-lg-3 ">
+					<div class="thumbnail" style="height: 334px;">
+						<a href="plugin/touch/touch.html" target="_blank" title="Swiper.js ">
+							<div class="content-title" style="background-color:#00AA88;">
+								<span>iscroll.js </span>
+							</div>
+						</a>
+						<div class="caption">
+							<h3> 
+                <a href="plugin/touch/touch.html" title="" target="_blank" onclick="">iscroll.js<br><small>by @XXX</small></a>
+              </h3>
+							<p>
+								iScroll is a high performance, small footprint, dependency free, multi-platform javascript scroller.
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 col-md-4 col-lg-3 ">
+					<div class="thumbnail" style="height: 334px;">
+						<a href="plugin/touch/touch.html" target="_blank" title="Swiper.js ">
+							<div class="content-title" style="background-color:cornflowerblue;">
+								<span>Underscore.js </span>
+							</div>
+						</a>
+						<div class="caption">
+							<h3> 
+                <a href="plugin/touch/touch.html" title="" target="_blank" onclick="">Underscore.js<br><small>by @XXX</small></a>
+              </h3>
+							<p>
+								Underscore provides over 100 functions that support both your favorite workaday functional helpers
 							</p>
 						</div>
 					</div>
@@ -160,11 +231,11 @@
 		<script src="js/q.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 	<script type="text/javascript">
-		var animatedArray = ["wobble", "flash", "bounce", "rubberBand", "shake", "swing", "tada", "bounceIn", "rotate"];
+		var animatedArray = ["wobble", "flash", "bounce", "rubberBand", "shake", "swing", "tada", "bounceIn","pilse"];
 		var I = 0;
 
 		function testAnim(o) {
-			$(o).removeClass().addClass(animatedArray[I] + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+			$(o).removeClass().addClass('jello animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 				$(this).removeClass();
 			});
 		};

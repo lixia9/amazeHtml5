@@ -3,33 +3,250 @@
 
 	<head>
 		<meta charset="utf-8">
-		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" name="viewport" />
-		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Touch</title>
 	</head>
-	<script src="touch-0.2.14.min.js"></script>
 
 	<body>
-		<img id="target" src="../layer/skin/default/icon.png"  width="50%"/>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../google-code-prettify/prettify.css" />
+		<style>
+			* {
+				font-family: "微软雅黑";
+			}
+		</style>
+
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+		<script src="touch-0.2.14.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<div class="container">
+			<div class="projects-header page-header">
+				<h2>Touch</h2>
+				<p>Touch.js是移动设备上的手势识别与事件库, 由百度云Clouda团队维护，也是在百度内部广泛使用的开发工具.</p>
+			</div>
+			<div id="view"></div>
+			<hr />
+			<h3>使用方法</h3>
+			<pre class="prettyprint">
+   &lt;!-- touch.js 核心 JavaScript 文件 --&gt;
+   &lt;script src="touch.js"&gt;&lt;/script&gt;
+</pre>
+			<a href="touch-0.2.14.min.js" target="_blank" style="text-decoration: none; float: right;"><span class="btn-success" style="padding: 5px;">点击下载</span></a>
+			<div style="clear: both;"></div>
+			<hr />
+			<h3>才艺展示</h3>
+			<h4 style="color: blue;text-align: center;">1 旋转</h4>
+			<div style="text-align: center;min-height: 20%">
+				<img src="../../img/touch.png" width="20%" id="rotate">
+
+			</div>
+			<h3 id="rotate_ds">您旋转了0度！</h3>
+			<script>
+				var angle = 0;
+				touch.on('#rotate', 'touchstart', function(ev) {
+					ev.startRotate();
+					ev.preventDefault();
+				});
+				touch.on('#rotate', 'rotate', function(ev) {
+					var totalAngle = angle + ev.rotation;
+					if (ev.fingerStatus === 'end') {
+						angle = angle + ev.rotation;
+					}
+					this.style.webkitTransform = 'rotate(' + totalAngle + 'deg)';
+					$("#rotate_ds").text("您旋转了" + totalAngle + "度！")
+				});
+			</script>
+			<pre class="prettyprint">
+ var angle = 0;
+touch.on('#target', 'touchstart', function(ev){
+    ev.startRotate();
+    ev.preventDefault();
+});
+
+touch.on('#target', 'rotate', function(ev){
+    var totalAngle = angle + ev.rotation;
+    if(ev.fingerStatus === 'end'){
+        angle = angle + ev.rotation;
+    }
+    this.style.webkitTransform = 'rotate(' + totalAngle + 'deg)';
+});
+
+       </pre>
+			<h4 style="color: blue;text-align: center;">2 拖拽</h4>
+			<div style="text-align: center;min-height: 20%">
+				<img src="../../img/touch.png" width="20%" id="drag">
+
+			</div>
+			<h3 id="drag_ds">抓取目标</h3>
+			<script>
+				touch.on('#drag', 'touchstart', function(ev) {
+					ev.preventDefault();
+				});
+				var target = document.getElementById("target");
+				var dx, dy;
+				touch.on('#drag', 'drag', function(ev) {
+					dx = dx || 0;
+					dy = dy || 0;
+					log("当前x值为:" + dx + ", 当前y值为:" + dy + ".");
+					var offx = dx + ev.x + "px";
+					var offy = dy + ev.y + "px";
+					this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
+				});
+				touch.on('#drag', 'dragend', function(ev) {
+					dx += ev.x;
+					dy += ev.y;
+				});
+
+				function log(o) {
+					$("#drag_ds").text(o)
+				}
+			</script>
+			<pre class="prettyprint">
+ touch.on('#target', 'touchstart', function(ev){
+	ev.preventDefault();
+});
+
+var target = document.getElementById("target");
+var dx, dy;
+
+touch.on('#target', 'drag', function(ev){
+	dx = dx || 0;
+	dy = dy || 0;
+	var offx = dx + ev.x + "px";
+	var offy = dy + ev.y + "px";
+	this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
+});
+
+touch.on('#target', 'dragend', function(ev){
+	dx += ev.x;
+	dy += ev.y;
+});
+
+       </pre>
+
+			<h4 style="color: blue;text-align: center;">3 滑动</h4>
+			<div style="text-align: center;min-height: 20%">
+				<img src="../../img/touch.png" width="20%" id="swipe">
+
+			</div>
+			<h3 id="swipe_ds">没有滑动</h3>
+			<script>
+				touch.on('#swipe', 'touchstart', function(ev) {
+					ev.preventDefault();
+				});
+				var target = document.getElementById("swipe");
+				target.style.webkitTransition = 'all ease 0.2s';
+				touch.on(target, 'swiperight', function(ev) {
+					this.style.webkitTransform = "translate3d(+" + this.offsetLeft + "px,0,0)";
+					logswipe("向右滑动.");
+				});
+				touch.on(target, 'swipeleft', function(ev) {
+					logswipe("向左滑动.");
+					this.style.webkitTransform = "translate3d(-" + this.offsetLeft + "px,0,0)";
+				});
+
+				function logswipe(o) {
+					$("#swipe_ds").text(o)
+				}
+			</script>
+			<pre class="prettyprint">
+touch.on('#target', 'touchstart', function(ev){
+	ev.preventDefault();
+});
+
+var target = document.getElementById("target");
+target.style.webkitTransition = 'all ease 0.2s';
+
+touch.on(target, 'swiperight', function(ev){
+	this.style.webkitTransform = "translate3d(" + this.offsetLeft  + "px,0,0)";
+	
+});
+
+touch.on(target, 'swipeleft', function(ev){
+	
+	this.style.webkitTransform = "translate3d(-" + this.offsetLeft + "px,0,0)";
+});
+
+       </pre>
+
+			<h4 style="color: blue;text-align: center;">4 判断事件</h4>
+			<div style="text-align: center;min-height: 20%">
+				<img src="../../img/touch.png" width="20%" id="getEv">
+
+			</div>
+			<h3 id="getEv_ds">没有事件</h3>
+			<script>
+				touch.on('#getEv', 'touchstart touchmove touchend', function(ev) {
+					$("#getEv_ds").text(ev.type)
+				});
+			</script>
+			<pre class="prettyprint">
+touch.on('#getEv', 'touchstart touchmove touchend', function(ev) {
+	$("#getEv_ds").text(ev.type)
+});
+       </pre>
+
+			<h4 style="color: blue;text-align: center;">5 双指放大</h4>
+			<div style="text-align: center;min-height: 20%">
+				<img src="../../img/touch.png" width="20%" id="scale">
+
+			</div>
+			<h3>双指放大</h3>
+			<script>
+				var target = document.getElementById("scale");
+				target.style.webkitTransition = 'all ease 0.05s';
+				touch.on('#scale', 'touchstart', function(ev) {
+					ev.preventDefault();
+				});
+				var initialScale = 1;
+				var currentScale;
+				touch.on('#scale', 'pinchend', function(ev) {
+					currentScale = ev.scale - 1;
+					currentScale = initialScale + currentScale;
+					currentScale = currentScale > 2 ? 2 : currentScale;
+					currentScale = currentScale < 1 ? 1 : currentScale;
+					this.style.webkitTransform = 'scale(' + currentScale + ')';
+					
+				});
+				touch.on('#scale', 'pinchend', function(ev) {
+					initialScale = currentScale;
+				});
+			</script>
+			<pre class="prettyprint">
+var target = document.getElementById("target");
+target.style.webkitTransition = 'all ease 0.05s';
+
+touch.on('#target', 'touchstart', function(ev){
+	ev.preventDefault();
+});
+
+var initialScale = 1;
+var currentScale;
+
+touch.on('#target', 'pinchend', function(ev){
+	currentScale = ev.scale - 1;
+	currentScale = initialScale + currentScale;
+	currentScale = currentScale > 2 ? 2 : currentScale;
+	currentScale = currentScale < 1 ? 1 : currentScale;
+	this.style.webkitTransform = 'scale(' + currentScale + ')';
+	
+});
+
+touch.on('#target', 'pinchend', function(ev){
+	initialScale = currentScale;
+});
+  </pre>
+			<hr />
+
+		</div>
+
+		<script>
+			$(window).load(function() {
+				$("pre").addClass("prettyprint");
+				prettyPrint();
+			})
+		</script>
 	</body>
-	<script type="text/javascript">
-		var target = document.getElementById("target");
-		target.style.webkitTransition = 'all ease 0.05s';
-		touch.on('#target', 'touchstart', function(ev) {
-			ev.preventDefault();
-		});
-		var initialScale = 1;
-		var currentScale;
-		touch.on('#target', 'pinchend', function(ev) {
-			currentScale = ev.scale - 1;
-			currentScale = initialScale + currentScale;
-			currentScale = currentScale > 2 ? 2 : currentScale;
-			currentScale = currentScale < 1 ? 1 : currentScale;
-			this.style.webkitTransform = 'scale(' + currentScale + ')';
-			log("当前缩放比例为:" + currentScale + ".");
-		});
-		touch.on('#target', 'pinchend', function(ev) {
-			initialScale = currentScale;
-		});
-	</script>
 
 </html>
