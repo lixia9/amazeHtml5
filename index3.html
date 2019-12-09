@@ -9,407 +9,463 @@
 		* {
 			margin: 0;
 			padding: 0;
-		}
-
-		.top {
-			height:30vh;
 			background-color: #000333;
 		}
 
-		.middle {
-			height:70vh;
-			background-color:  #000333;
+		.top {
+			
+			background-color: #000333;
+			position: absolute;
+			top: 10px;
+			right: 10px;
 		}
-		
+
+		.middle {
+			height: 100vh;
+			background-color: #000333;
+		}
+
+		.bottom {
+			position: absolute;
+			right: 10px;
+			bottom: 20px;
+			width: 100%;
+			font-size: 10px;
+			color: #c4c6dc;
+			text-align: right;
+
+		}
+
 		#viewport {
-		  position: absolute;
-		  left: 0;
-		  top: 0;
-		  background:#000333;
-		  z-index: 1;
+			position: absolute;
+			top: 15px;
+			right: 0;
+			background: #000333;
+			z-index: 1;
+		}
+
+		body {
+
+			overflow-y: hidden;
+		}
+
+		body p {
+		
+			font-family: 'Quicksand', sans-serif;
+			font-weight: 900;
+		}
+
+		body p i {
+			transition: .5s;
+		}
+
+		.fa-codepen {
+			-webkit-animation: fade 3s infinite alternate;
+			-moz-animation: fade 3s infinite alternate;
+			-o-animation: fade 3s infinite alternate;
+			animation: fade 3s infinite alternate;
+		}
+
+		a {
+			color: #ddd;
+		}
+
+		span {
+			font-size: 6em;
+			font-family: "Quicksand", sans-serif;
+			font-weight: 500;
+			color: #ddd;
+			transition: .25s;
+		}
+
+
+		.blue {
+			font-family: cursive;
+			width: 100%;
+			position: absolute;
+			font-size: 20px;
+			top: 10px;
+			left: 10px;
+			text-shadow: 2px 2px 1px rgba(0, 0, 0, .4), 0 0 20px #42A5F5, 0 0 40px rgba(33, 150, 243, .75), 0 0 50px rgba(33, 150, 243, .75), 0 0 60px rgba(33, 150, 243, .75);
+		}
+
+
+		}
+
+		.blue:before {
+			content: '';
+			position: absolute;
+			background: rgba(66, 165, 245, .25);
+			z-index: -1;
+			opacity: .7;
+			filter: blur(30px);
+			width: 100%;
+			height: 100%;
+		}
+
+		.buttons {
+			margin-bottom: auto;
+			margin-top: 20px;
+		}
+
+		button {
+			margin: 0 5px;
+			padding: 10px;
+			letter-spacing: 1px;
+			background: none;
+			border: 2px solid #444;
+			height: 2.25em;
+			border-radius: 2.25em;
+			color: #444;
+			font-size: 1.25em;
+			font-weight: bold;
+			text-transform: uppercase;
+			transition: .5s;
+			outline: none;
+		}
+
+		button:nth-child(1):hover {
+			/*Green*/
+			color: #00E676;
+			text-shadow: 0 0 7px #00E676;
+			border-color: #00E676;
+			box-shadow: 0 0 15px #00E676, inset 0 0 15px #00E676;
+		}
+
+		button:nth-child(2):hover {
+			/*Pink*/
+			color: #ff005b;
+			text-shadow: 0 0 7px #ff005b;
+			border-color: #ff005b;
+			box-shadow: 0 0 15px #ff005b, inset 0 0 15px #ff005b;
+		}
+
+		button:nth-child(3):hover {
+			/*Blue*/
+			color: #2196F3;
+			text-shadow: 0 0 7px #2196F3;
+			border-color: #2196F3;
+			box-shadow: 0 0 15px #2196F3, inset 0 0 15px #2196F3;
+		}
+
+		/*Animation*/
+		@-moz-keyframes fade {
+			40% {
+				opacity: 0.8;
+			}
+
+			42% {
+				opacity: 0.1;
+			}
+
+			43% {
+				opacity: 0.8;
+			}
+
+			45% {
+				opacity: 0.1;
+			}
+
+			46% {
+				opacity: 0.8;
+			}
+		}
+
+		@-webkit-keyframes fade {
+			40% {
+				opacity: 0.8;
+			}
+
+			42% {
+				opacity: 0.1;
+			}
+
+			43% {
+				opacity: 0.8;
+			}
+
+			45% {
+				opacity: 0.1;
+			}
+
+			46% {
+				opacity: 0.8;
+			}
+		}
+
+		@-o-keyframes fade {
+			40% {
+				opacity: 0.8;
+			}
+
+			42% {
+				opacity: 0.1;
+			}
+
+			43% {
+				opacity: 0.8;
+			}
+
+			45% {
+				opacity: 0.1;
+			}
+
+			46% {
+				opacity: 0.8;
+			}
+		}
+
+		@keyframes fade {
+			40% {
+				opacity: 0.8;
+			}
+
+			42% {
+				opacity: 0.1;
+			}
+
+			43% {
+				opacity: 0.8;
+			}
+
+			45% {
+				opacity: 0.1;
+			}
+
+			46% {
+				opacity: 0.8;
+			}
 		}
 	</style>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.11/pixi.min.js"></script>
+	<script src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201711/jiaoben5522/js/jquery.min.js" type="text/javascript"
+	 charset="utf-8"></script>
+	<script src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201711/jiaoben5522/js/typed.min.js" type="text/javascript"
+	 charset="utf-8"></script>
 	<body>
+		<div>
+			<div id="typedStrings">
+				<!-- <p>信也科技</p> -->
+				<p>邀请函</p>
+			</div>
+			<span id="span"></span>
+		</div>
 		<div class="top">
-			<canvas id="viewport"></canvas>
+			<img src="lxl.png" >
 		</div>
 		<div class="middle">
-			<canvas id="middle" width="" height=""></canvas>
+			<canvas id="middle"></canvas>
 		</div>
-		
-		
+
+		<div class="bottom">
+			<p>信也科技年会邀请函</p>
+			<p>新金桥路1599号东方万国宴会中心</p>
+			<p>2019年12月31日18:00</p>
+		</div>
 	</body>
 </html>
 <script>
-const IMAGE_URL = "./1000.jpg";
-const PARTICLE_SIZE = 8; // image pixel size
-const PADDING = 40;
-const DEFAULT_REPULSION_CHANGE_DISTANCE = 20;
+	$("#span").typed({
+		stringsElement: $("#typedStrings"),
+		typeSpeed: 70,
+		showCursor: false,
+		contentType: "html"
+	});
+	var colors = [
+		["blue", "#2196F3"]
+	];
+	var randomColor = colors[Math.floor(Math.random() * colors.length)];
+	var initialColor = randomColor[0];
+	var initialHeartColor = randomColor[1];
 
-let repulsionChangeDistance = DEFAULT_REPULSION_CHANGE_DISTANCE;
-let pointSystem = null;
-let targetImage = null;
-
-// ==================================================
-// ImageParticle Class
-// ==================================================
-class ImageParticle {
-  constructor(originPosition, originScale, originColor) {
-    this.position = originPosition.copy();
-    this.originPosition = originPosition.copy();
-    this.velocity = createVector(random(0, 50), random(0, 50));
-    this.repulsion = random(1.0, 5.0);
-		this.mouseRepulsion = 1.0;
-    this.gravity = 0.01;
-		this.maxGravity = random(0.01, 0.04);
-    this.scale = originScale;
-    this.originScale = originScale;
-    this.color = originColor;
-    this.sprite = null;
-  }
-  
-  createSprite(texture) {
-    this.sprite = new PIXI.Sprite(texture);
-    this.sprite.tint = (this.color[0] << 16) + (this.color[1] << 8) + (this.color[2]);
-    
-    return this.sprite;
-  }
-  
-  updateState() {
-    this._updateStateByMouse();
-    this._updateStateByOrigin();
-    this.velocity.mult(0.95);
-    this.position.add(this.velocity);
-    
-    this.sprite.position.x = this.position.x;
-    this.sprite.position.y = this.position.y;
-    this.sprite.scale.x = this.sprite.scale.y = this.scale;
-  }
-  
-  _updateStateByMouse() {
-    const distanceX = mouseX - this.position.x;
-    const distanceY = mouseY - this.position.y;
-    const distance = mag(distanceX, distanceY);
-    const pointCos = distanceX / distance;
-    const pointSin = distanceY / distance;
-    
-    if (distance < repulsionChangeDistance) {
-      this.gravity *= 0.6;
-      this.mouseRepulsion = max(0, this.mouseRepulsion * 0.5 - 0.01);
-      this.velocity.sub(pointCos * this.repulsion, pointSin * this.repulsion);
-      this.velocity.mult(1 - this.mouseRepulsion);
-    } else {
-      this.gravity += (this.maxGravity - this.gravity) * 0.1;
-      this.mouseRepulsion = min(1, this.mouseRepulsion + 0.03);
-    }
-  }
-  
-  _updateStateByOrigin() {
-    const distanceX = this.originPosition.x - this.position.x;
-    const distanceY = this.originPosition.y - this.position.y;
-    const distance = mag(distanceX, distanceY);
-    
-    this.velocity.add(distanceX * this.gravity, distanceY * this.gravity);
-    this.scale = this.originScale + this.originScale * distance / 512;
-  }
-}
-
-class ImageParticleSystem {
-  constructor() {
-    this.points = [];
-    this.pointSprites = [];
-    this.renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight/4+100, {
-      view: document.getElementById("viewport"),
-      backgroundColor: 0x333
-    });
-    this.stage = new PIXI.Container();
-    this.container = new PIXI.Container();
-    
-    this._createParticles();
-    this._setup();
-  }
-  
-  _setup() {
-    this.stage.addChild(this.container);
-    document.querySelector(".top").appendChild(this.renderer.view);
-  }
-  
-  _getPixel(x, y) {
-    const pixels = targetImage.pixels;
-    const idx = (y * targetImage.width + x) * 4;
-    
-    if (x > targetImage.width || x < 0 || y > targetImage.height || y < 0) {
-      return [0,0,0,0];
-    }
-    
-    return [
-    	pixels[idx + 0],
-    	pixels[idx + 1],
-    	pixels[idx + 2],
-    	pixels[idx + 3]
-    ];
-  }
-  
-  _createParticleTexture() {
-    const graphics = new PIXI.Graphics();
-    
-    graphics.lineStyle(0);
-    graphics.beginFill(0xFFFFFF);
-    graphics.drawRect(0, 0, PARTICLE_SIZE, PARTICLE_SIZE);
-    
-    return graphics.generateTexture();
-  }
-  
-  _createParticles() {
-    const imageWidth = targetImage.width;
-    const imageHeight = targetImage.height;
-    const imageScale = min((window.innerWidth - PADDING * 2) / imageWidth, (window.innerHeight - PADDING * 2) / imageHeight);
-    const texture = this._createParticleTexture();
-    const fractionSizeX = imageWidth / PARTICLE_SIZE;
-    const fractionSizeY = imageHeight / PARTICLE_SIZE;
-    
-    for (let i = 0; i < fractionSizeX; i++) {
-      for (let j = 0; j < fractionSizeY; j++) {
-        const imagePosition = createVector(int(i * PARTICLE_SIZE), int(j * PARTICLE_SIZE));
-        let originPosition = imagePosition;
-        let originScale = imageScale;
-        let originColor = this._getPixel(imagePosition.x, imagePosition.y);
-        
-        if (originColor[3] === 0) {
-          continue;
-        }
-        
-        originPosition.mult(imageScale);
-        originPosition.add(PADDING, PADDING);
-        
-        let point = new ImageParticle(originPosition, originScale, originColor);
-        this.points.push(point);
-        this.container.addChild(point.createSprite(texture));
-      }
-    }
-    
-    console.log("particle count: %s", int(fractionSizeX * fractionSizeY));
-  }
-
-  updateState() {
-    const mousePosition = this.renderer.plugins.interaction.mouse.global;
-    mouseX = mousePosition.x;
-    mouseY = mousePosition.y;
-    
-    for (let point of this.points) {
-      point.updateState();
-    }
-  }
-  
-  render() {
-    this.renderer.render(this.stage);
-  }
-}
-
-// ==================================================
-// Main
-// ==================================================
-function preload() {
-  targetImage = loadImage(IMAGE_URL);
-}
-
-function setup() {
-	targetImage.loadPixels();
-  noStroke();
-  frameRate(60);
-  pointSystem = new ImageParticleSystem();
-}
-
-function draw() {
-  repulsionChangeDistance = max(0, repulsionChangeDistance - 1.5);
-  
-  pointSystem.updateState();
-  pointSystem.render();
-}
-
-function mouseMoved() {
-  repulsionChangeDistance = DEFAULT_REPULSION_CHANGE_DISTANCE;
-}
-var status = 0;
-
-init('科技无限',"middle")
-
-function init(txt,id){
-	
-	
-	var txtH = 80;
-	var font = "sans-serif";
-	var bg = "#fff";
-	var rayColor1 = "#fff";
-	var rayColor2 = "#18f5ff";
-	var fade = 1;
-	
-	var canvas = document.getElementById(id);
-	var ctx = canvas.getContext("2d");
-	var cw = canvas.width = window.innerWidth;
-	var ch = canvas.height = 500;
-	
-	var w2 = cw/2;
-	var h2 = ch/2;
-	var pi = Math.PI;
-	var pi2 = pi*.5;
-	
-	var txtCanvas = document.createElement("canvas");
-	var txtCtx = txtCanvas.getContext("2d");
-	txtCtx.font = txtH + "px " + font;
-	txtCtx.textBaseline = "middle";
-	var txtW = Math.floor(txtCtx.measureText(txt).width);
-	txtCanvas.width = txtW;
-	txtCanvas.height = txtH*1.5;
-	
-	var gradient = ctx.createRadialGradient(w2, h2, 0, w2, h2, txtW);
-	gradient.addColorStop(0, rayColor2);
-	gradient.addColorStop(1, rayColor1);
-	ctx.strokeStyle = gradient;
-	
-	txtCtx.fillStyle = gradient;
-	txtCtx.font = txtH + "px " + font;
-	txtCtx.textBaseline = "middle";
-	txtCtx.fillText(txt,0,txtH*.5);
-	
-	//dirty adjust for descends
-	txtH *= 1.5;
-	
-	var bufferCanvas = document.createElement("canvas");
-	bufferCanvas.width = txtW;
-	bufferCanvas.height = txtH;
-	var buffer = bufferCanvas.getContext("2d");
-	
-	//text start position
-	var sx = (cw-txtW)*0.5
-	var sy = (ch-txtH)*0.5
-	
-	////generate data
-	var rays = [];
-	var txtData = txtCtx.getImageData(0,0,txtW,txtH);
-	for (var i = 0; i < txtData.data.length; i+=4) {
-	  var ii = i/4;
-	  var row = Math.floor(ii/txtW)
-	  var col = ii%txtW
-	  var alpha = txtData.data[i+3]
-	  if(alpha !== 0){
-	    var c = "rgba("
-	    c += [txtData.data[i],txtData.data[i+1],txtData.data[i+2], alpha/255 ] 
-	    c += ")";
-	    rays.push(new Ray(Math.floor(ii/txtW), ii%txtW, c));  
-	  }
+	function colorChange(color, heart) {
+		$('#span').attr('class', '').addClass(color);
+		$('body p i').css('color', initialHeartColor);
+		$('body p i').css('color', heart);
 	}
+	colorChange(initialColor);
 	
-	var current = 1;
-	//start animation
-	tick();
-	function tick() {
-	  ctx.clearRect(0,0,cw,ch)
-	  ctx.drawImage(bufferCanvas, 0, 0, current, txtH, sx, sy, current, txtH)
-	  ctx.save()
-	  ctx.globalAlpha = .07;
-	  ctx.globalCompositeOperation = "lighter";
-	  if(drawRays(current)){
-	    current++;
-	    current = Math.min(current, txtW)
-	    window.requestAnimationFrame(tick) 
-	  }else{
-	    fadeOut()
-	  }
-	  ctx.restore()
+
+	var status = 0;
+
+	init('科技无限', "middle")
+
+	function init(txt, id) {
+
+
+		var txtH = 80;
+		var font = "sans-serif";
+		var bg = "#fff";
+		var rayColor1 = "#fff";
+		var rayColor2 = "#42A5F5";
+		var fade = 1;
+
+		var canvas = document.getElementById(id);
+		var ctx = canvas.getContext("2d");
+		var cw = canvas.width = window.innerWidth;
+		var ch = canvas.height = window.innerHeight - 300;
+
+		var w2 = cw / 2;
+		var h2 = ch / 2;
+		var pi = Math.PI;
+		var pi2 = pi * .5;
+
+		var txtCanvas = document.createElement("canvas");
+		var txtCtx = txtCanvas.getContext("2d");
+		txtCtx.font = txtH - 30 + "px " + font;
+		txtCtx.textBaseline = "middle";
+		var txtW = Math.floor(txtCtx.measureText(txt).width);
+		txtCanvas.width = txtW;
+		txtCanvas.height = txtH * 1.5;
+
+		var gradient = ctx.createRadialGradient(w2, h2, 0, w2, h2, txtW);
+		gradient.addColorStop(0, rayColor2);
+		gradient.addColorStop(1, rayColor1);
+		ctx.strokeStyle = gradient;
+
+		txtCtx.fillStyle = gradient;
+		txtCtx.font = txtH - 30 + "px " + font;
+		txtCtx.textBaseline = "middle";
+		txtCtx.fillText(txt, 0, txtH * .5);
+
+		//dirty adjust for descends
+		txtH *= 1.5;
+
+		var bufferCanvas = document.createElement("canvas");
+		bufferCanvas.width = txtW;
+		bufferCanvas.height = txtH;
+		var buffer = bufferCanvas.getContext("2d");
+
+		//text start position
+		var sx = (cw - txtW) * 0.5
+		var sy = (ch - txtH) * 0.5
+
+		////generate data
+		var rays = [];
+		var txtData = txtCtx.getImageData(0, 0, txtW, txtH);
+		for (var i = 0; i < txtData.data.length; i += 4) {
+			var ii = i / 4;
+			var row = Math.floor(ii / txtW)
+			var col = ii % txtW
+			var alpha = txtData.data[i + 3]
+			if (alpha !== 0) {
+				var c = "rgba("
+				c += [txtData.data[i], txtData.data[i + 1], txtData.data[i + 2], alpha / 255]
+				c += ")";
+				rays.push(new Ray(Math.floor(ii / txtW), ii % txtW, c));
+			}
+		}
+
+		var current = 1;
+		//start animation
+		tick();
+
+		function tick() {
+			ctx.clearRect(0, 0, cw, ch)
+			ctx.drawImage(bufferCanvas, 0, 0, current, txtH, sx, sy, current, txtH)
+			ctx.save()
+			ctx.globalAlpha = .07;
+			ctx.globalCompositeOperation = "lighter";
+			if (drawRays(current)) {
+				current++;
+				current = Math.min(current, txtW)
+				window.requestAnimationFrame(tick)
+			} else {
+				fadeOut()
+			}
+			ctx.restore()
+		}
+
+		function fadeOut() {
+			ctx.clearRect(0, 0, cw, ch)
+			ctx.globalAlpha *= .95;
+			ctx.drawImage(bufferCanvas, 0, 0, current, txtH, sx, sy, current, txtH)
+			if (ctx.globalAlpha > .31) {
+				window.requestAnimationFrame(fadeOut)
+			} else {
+				if (status == 0) {
+					status = 1;
+					init("鼠你最猿", "middle")
+
+				} else {
+					status = 0;
+					init('科技无限', "middle")
+				}
+
+				// window.setTimeout(restart, 500)
+			}
+		}
+
+		function restart() {
+			for (var i = 0; i < rays.length; i++) {
+				rays[i].reset()
+			}
+			ctx.globalAlpha = 1
+			buffer.clearRect(0, 0, txtW, txtH)
+			current = 1;
+			tick();
+		}
+
+		function drawRays(c) {
+			var count = 0;
+			ctx.beginPath()
+			for (var i = 0; i < rays.length; i++) {
+				var ray = rays[i];
+				if (ray.col < c) {
+					count += ray.draw()
+				}
+			}
+			ctx.stroke()
+			return count !== rays.length;
+		}
+
+		function filterRays(r) {
+			return Boolean(r);
+		}
+
+		function Ray(row, col, f) {
+			this.col = col;
+			this.row = row;
+
+			var xp = sx + col;
+			var yp = sy + row;
+			var fill = f;
+
+			var ath = (txtH / 1.5)
+
+			var a = pi2 * (this.row - ath * .5) / ath;
+			if (a === 0) {
+				a = (Math.random() - .5) * pi2;
+			}
+			var da = .02 * Math.sign(a);
+			da += (Math.random() - .5) * .005;
+			var l = 0;
+			var dl = Math.random() * 2 + 2;
+
+			var buffered = false;
+			this.reset = function() {
+				a = pi2 * (this.row - ath * .5) / ath;
+				if (a === 0) {
+					a = -pi2 * .5;
+				}
+				l = 0;
+				buffered = false
+			}
+			this.draw = function() {
+				if (l < 0) {
+					if (!buffered) {
+						buffer.fillStyle = fill;
+						buffer.fillRect(this.col, this.row, 1, 1);
+						buffered = true
+					}
+					return 1;
+				} else {
+					ctx.moveTo(xp, yp)
+					ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+					a += da;
+					l += Math.cos(a) * dl;
+					return 0;
+				}
+			}
+		}
 	}
-	
-	function fadeOut(){
-	  ctx.clearRect(0,0,cw,ch)
-	  ctx.globalAlpha *= .95;
-	  ctx.drawImage(bufferCanvas, 0, 0, current, txtH, sx, sy, current, txtH)
-	  if(ctx.globalAlpha > .31){
-	   window.requestAnimationFrame(fadeOut) 
-	  }else{
-		  if(status==0){
-			  status=1;
-			  init("非你莫鼠","middle") 
-			
-		  }else{
-			  status=0;
-			init('科技无限',"middle")
-		  }
-		
-	    // window.setTimeout(restart, 500)
-	  }
-	}
-	function restart(){
-	  for(var i = 0; i < rays.length; i++){
-	    rays[i].reset()
-	  }
-	  ctx.globalAlpha = 1
-	  buffer.clearRect(0,0,txtW,txtH)
-	  current = 1;
-	  tick();
-	}
-	function drawRays(c){
-	  var count = 0;
-	  ctx.beginPath()
-	  for(var i = 0; i < rays.length; i++){
-	    var ray = rays[i];
-	    if(ray.col < c){
-	      count += ray.draw()
-	    }
-	  }
-	  ctx.stroke()
-	  return count !== rays.length;
-	}
-	
-	function filterRays(r){
-	  return Boolean(r);
-	}
-	
-	function Ray(row, col, f){
-	  this.col = col;
-	  this.row = row;
-	  
-	  var xp = sx + col;
-	  var yp = sy + row;
-	  var fill = f;
-	  
-	  var ath = (txtH/1.5) 
-	  
-	  var a = pi2 * (this.row - ath*.5) / ath;
-	  if(a === 0){
-	    a = (Math.random() - .5) * pi2;
-	  }
-	  var da = .02 * Math.sign(a);
-	  da += (Math.random() - .5) * .005;
-	  var l = 0;
-	  var dl = Math.random()*2 + 2;
-	  
-	  var buffered = false;
-	  this.reset = function(){
-	    a = pi2 * (this.row - ath*.5) / ath;
-	    if(a === 0){
-	      a = -pi2*.5;
-	    }
-	    l = 0;
-	    buffered = false
-	  }
-	  this.draw = function(){
-	    if(l < 0){
-	      if(!buffered){
-	        buffer.fillStyle = fill;
-	        buffer.fillRect(this.col, this.row, 1, 1);
-	        buffered = true
-	      }
-	      return 1;
-	    }else{
-	      ctx.moveTo(xp, yp)
-	      ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
-	      a += da;
-	      l += Math.cos(a)*dl;
-	      return 0;
-	    }
-	  }
-	}
-}
 </script>
