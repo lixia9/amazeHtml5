@@ -27,13 +27,17 @@
         .main {
         	position: absolute;
         	right: 10px;
-        	bottom: 200px;
+        	top: 340px;
         	width: 100%;
         	font-size: 20px;
         	color: #c4c6dc;
         	text-align: center;
         
         }
+		 .main p {
+			font-family: "microsoft sans serif";
+		
+		}
 		.bottom {
 			position: absolute;
 			right: 10px;
@@ -261,11 +265,12 @@
 		<div class="middle">
 			<canvas id="middle"></canvas>
 		</div>
-		<div class="main">
-			<p>这里，科技无限！</p>
-			<p>这里，技术发光！</p>
-			<p>这是我们的主场！</p>
-			<p>这是我们的世界！</p>
+		
+		<div class="main" >
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
 		</div>
 		<div class="bottom">
 			<p>信也科技年会邀请函</p>
@@ -293,6 +298,22 @@ var env = {
 		showCursor: false,
 		contentType: "html"
 	});
+	var contentStrings = [["^2000 这里，技术发光! ^500 "],["这里，科技无限! ^500 "],["这是我们的主场! ^500 "],["这是我们的世界!"]]
+	var pringI=0;
+	function print(){
+		$($(".main p")[pringI]).typed({
+			strings:contentStrings[pringI],
+			typeSpeed: 100,
+			showCursor: false,
+			callback:function(){
+				if(pringI<4){
+					pringI++;
+					print()
+				}
+			}
+		});
+	}
+	print()
 	var colors = [
 		["blue", "#2196F3"]
 	];
