@@ -488,7 +488,7 @@ var env = {
 				} else {
 				 	iii++;
 			     	if(env.isIos){
-					if((iii>60&&iii<70)){
+					if(iii==1||iii==10||iii==50||iii==90||iii==100||iii==110){
 					 ctx.beginPath();
 					 ctx.moveTo(xp, yp)
 					 ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
