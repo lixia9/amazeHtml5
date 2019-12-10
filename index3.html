@@ -772,23 +772,18 @@
 					}
 					return 1;
 				} else {
-					iii++;
-					if (env.isIos) {
-						if (iii == 55) {
+					// iii++;
+					
 							ctx.beginPath();
 							ctx.moveTo(xp, yp)
 							ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
 							ctx.strokeStyle = "lightblue";
-							ctx.lineWidth = 10;
+							ctx.lineWidth = 1;
 							ctx.stroke();
-						}
+						
 
 						// 						
-					} else {
-						ctx.moveTo(xp, yp)
-						ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
-					}
-
+				
 
 					a += da;
 					l += Math.cos(a) * dl;
