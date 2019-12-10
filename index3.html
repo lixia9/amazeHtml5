@@ -721,19 +721,6 @@
 			return Boolean(r);
 		}
 
-		function lines(x, y, vx, vy) {
-			this.x = x;
-			this.y = y;
-			this.vx = vx;
-			this.vy = vy;
-			this.cacheCanvas = document.createElement("canvas");
-			this.cacheCtx = this.cacheCanvas.getContext("2d");
-			this.cacheCtx.beginPath()
-			this.cacheCtx.moveTo(x, y)
-			this.cacheCtx.beginPath()
-			this.cacheCtx.stroke()
-
-		}
 
 		function Ray(row, col, f) {
 			this.col = col;
@@ -762,7 +749,7 @@
 				l = 0;
 				buffered = false
 			}
-			var iii = 0
+		
 			this.draw = function() {
 				if (l < 0) {
 					if (!buffered) {
@@ -772,19 +759,20 @@
 					}
 					return 1;
 				} else {
-					// iii++;
-					
-							ctx.beginPath();
-							ctx.moveTo(xp, yp)
-							ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
-							ctx.strokeStyle = "lightblue";
-							ctx.lineWidth = 1;
-							ctx.stroke();
-						
-
-						// 						
 				
-
+					
+					 if(env.isIos){
+						 ctx.beginPath();
+						 ctx.moveTo(xp, yp)
+						 ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+						 ctx.strokeStyle = "lightblue";
+						 ctx.lineWidth = 1;
+						 ctx.stroke();
+					 }	else{
+						 ctx.moveTo(xp, yp)
+						 ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+					 }	
+				
 					a += da;
 					l += Math.cos(a) * dl;
 					return 0;
