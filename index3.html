@@ -13,7 +13,6 @@
 		}
 
 		.top {
-			
 			background-color: #000333;
 			position: absolute;
 			top: 10px;
@@ -57,21 +56,7 @@
 			z-index: 1;
 		}
 
-		body {
-
-			overflow-y: hidden;
-		}
-
-		body p {
 		
-			font-family: 'Quicksand', sans-serif;
-			font-weight: 900;
-		}
-
-		body p i {
-			transition: .5s;
-		}
-
 		.fa-codepen {
 			-webkit-animation: fade 3s infinite alternate;
 			-moz-animation: fade 3s infinite alternate;
@@ -79,10 +64,7 @@
 			animation: fade 3s infinite alternate;
 		}
 
-		a {
-			color: #ddd;
-		}
-
+	
 		span {
 			font-size: 6em;
 			font-family: "Quicksand", sans-serif;
@@ -257,7 +239,7 @@
 				<!-- <p>信也科技</p> -->
 				<p>邀请函</p>
 			</div>
-			<span id="span"></span>
+			<span  id="span"></span>
 		</div>
 		<div class="top">
 			<img src="lxl.png" >
@@ -503,12 +485,20 @@ var env = {
 					}
 					return 1;
 				} else {
-					ctx.moveTo(xp, yp)
-			     	if(env.isAndroid){
+						
+			     	if(env.isIos){
+						
+					 ctx.beginPath();
+					 ctx.moveTo(xp, yp)
+				     ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+				     ctx.stroke();
+// 						
+					}else{
+						ctx.moveTo(xp, yp)
 						ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
 					}
-					
 					ctx.lineWidth = 1;
+					
 					a += da;
 					l += Math.cos(a) * dl;
 					return 0;
