@@ -1,27 +1,54 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
 		<title></title>
 	</head>
 	<style type="text/css">
+		html,body{
+			height:100%;
+			width:100%;
+			overflow: hidden;
+		}
+		body {
+			background-color: #000333;
+		}
 		* {
 			margin: 0;
 			padding: 0;
-			background-color: #000333;
 		}
-
-		.top {
-			background-color: #000333;
+		.logo {
 			position: absolute;
 			top: 10px;
 			right: 10px;
 		}
-
+		.logo img{
+			width:68px;
+		}
+		.title{
+			position:absolute;
+			top:9%;
+			left:0;
+			width:100%;
+			height:60px;
+			line-height:60px;
+			text-align: center;
+			z-index:10;
+		}
+		.title span{
+			font-size:32px;
+			color:#fff;
+		}
 		.middle {
+			width: 100%;
 			height: 100vh;
 			background-color: #000333;
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+			overflow: hidden;
 		}
         .main {
         	position: absolute;
@@ -37,17 +64,53 @@
 			font-family: "microsoft sans serif";
 		
 		}
-		.bottom {
+		.footer {
 			position: absolute;
-			right: 10px;
-			bottom: 20px;
+			left:0;
+			right: 0;
+			bottom:20%;
 			width: 100%;
-			font-size: 10px;
 			color: #c4c6dc;
-			text-align: right;
-
+			text-align: center;
 		}
-
+		.footer p{
+			font-size:14px;
+			line-height:24px;
+			color: #c4c6dc;
+			font-family: "Quicksand", sans-serif;
+		}
+		.footer p span{
+			font-size:16px;
+			font-weight: 400;
+			color: #ddd;
+		}  
+		.footer_mtb10{
+			margin:10px 0;
+		}
+		.footer p.footer_hold{
+			font-size:16px;
+			font-weight: 400;
+		}
+		.footer_left{
+			position:absolute;
+			bottom:16px;
+			left:5px;
+			width:30px;
+			line-height:16px;
+			font-size:12px;
+			color:#c4c6dc;
+			z-index:20;
+		}
+		.footer_bottom{
+			position: absolute;
+			left:0;
+			right: 0;
+			bottom:16px;
+			width: 100%;
+			font-size:12px;
+			color: #c4c6dc;
+			text-align: center;	
+		}
 		#viewport {
 			position: absolute;
 			top: 15px;
@@ -55,7 +118,6 @@
 			background: #000333;
 			z-index: 1;
 		}
-
 		
 		.fa-codepen {
 			-webkit-animation: fade 3s infinite alternate;
@@ -65,29 +127,22 @@
 		}
 
 	
-		span {
-			font-size: 6em;
+		.title span {
+			font-size: 32px;
 			font-family: "Quicksand", sans-serif;
 			font-weight: 500;
 			color: #ddd;
 			transition: .25s;
 		}
-
-
-		.blue {
-			font-family: cursive;
-			width: 100%;
+		.title .blue {
 			position: absolute;
-			font-size: 20px;
-			top: 10px;
-			left: 10px;
+			width: 100%;
+			left:0;
+			font-family: cursive;
+			font-size: 32px;
 			text-shadow: 2px 2px 1px rgba(0, 0, 0, .4), 0 0 20px #42A5F5, 0 0 40px rgba(33, 150, 243, .75), 0 0 50px rgba(33, 150, 243, .75), 0 0 60px rgba(33, 150, 243, .75);
 		}
-
-
-		}
-
-		.blue:before {
+		.title .blue:before {
 			content: '';
 			position: absolute;
 			background: rgba(66, 165, 245, .25);
@@ -234,16 +289,14 @@
 	</style>
 
 	<body>
-		<div>
+		<div class="title">
 			<div id="typedStrings">
 				<!-- <p>信也科技</p> -->
-				<p>邀请函</p>
+				<p>研发中心年会邀请函</p>
 			</div>
-			<span  id="span"></span>
+			<span id="span"></span>
 		</div>
-		<div class="top">
-			<img src="lxl.png" >
-		</div>
+		<div class="logo"><img src="lxl.png" ></div>
 		<div class="middle">
 			<canvas id="middle"></canvas>
 		</div>
@@ -254,11 +307,18 @@
 			<p></p>
 			<p></p>
 		</div>
-		<div class="bottom">
-			<p>信也科技年会邀请函</p>
-			<p>新金桥路1599号东方万国宴会中心</p>
-			<p>2019年12月31日18:00</p>
+		
+		
+		<div class="footer_left">科<br/>技<br/><br/>让<br/>金<br/>融<br/>更<br/>美<br/>好</div>
+		<div class="footer">
+			<p>诚邀您于</p>
+			<p><span>2019年12月31日 18:00</span></p>
+			<p>前往</p>
+			<p><span>新金桥路1599号东方万国宴会中心</span></p>
+			<p class="footer_mtb10">于我们相聚</p>
+			<p class="footer_hold"><span>这里技术在发光</span></p>
 		</div>
+		<div class="footer_bottom">Sncerely  Welcome Your Arrival</div>
 	</body>
 </html>
 	<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js" type="text/javascript"
@@ -295,7 +355,7 @@ var env = {
 			}
 		});
 	}
-	print()
+	// print()
 	var colors = [
 		["blue", "#2196F3"]
 	];
@@ -328,7 +388,7 @@ var env = {
 		var canvas = document.getElementById(id);
 		var ctx = canvas.getContext("2d");
 		var cw = canvas.width = window.innerWidth;
-		var ch = canvas.height = window.innerHeight - 300;
+		var ch = canvas.height = window.innerHeight/2+100;
 
 		var w2 = cw / 2;
 		var h2 = ch / 2;
@@ -420,7 +480,7 @@ var env = {
 				// window.setTimeout(restart, 500)
 			}
 		}
-
+       
 		function restart() {
 			for (var i = 0; i < rays.length; i++) {
 				rays[i].reset()
@@ -447,15 +507,26 @@ var env = {
 		function filterRays(r) {
 			return Boolean(r);
 		}
+       function lines (x,y,vx,vy){
+		        this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.cacheCanvas = document.createElement("canvas");
+                this.cacheCtx = this.cacheCanvas.getContext("2d");
+				this.cacheCtx.beginPath()
+                this.cacheCtx.moveTo(x, y)
+				this.cacheCtx.beginPath()				
+				this.cacheCtx.stroke()
 
+	   }
 		function Ray(row, col, f) {
 			this.col = col;
 			this.row = row;
-
+            this.lines=[]
 			var xp = sx + col;
 			var yp = sy + row;
 			var fill = f;
-
 			var ath = (txtH / 1.5)
 
 			var a = pi2 * (this.row - ath * .5) / ath;
@@ -476,7 +547,7 @@ var env = {
 				l = 0;
 				buffered = false
 			}
-			var iii = 0
+		 var iii = 0
 			this.draw = function() {
 				if (l < 0) {
 					if (!buffered) {
@@ -488,10 +559,12 @@ var env = {
 				} else {
 				 	iii++;
 			     	if(env.isIos){
-					if(iii==10||iii==20||iii==120||iii==130){
+					if(iii==55){
 					 ctx.beginPath();
 					 ctx.moveTo(xp, yp)
 					 ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+					 ctx.strokeStyle="lightblue";
+					 ctx.lineWidth = 10;
 					 ctx.stroke();	
 					}
 					
@@ -500,7 +573,7 @@ var env = {
 						ctx.moveTo(xp, yp)
 						ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
 					}
-					ctx.lineWidth = 1;
+					
 					
 					a += da;
 					l += Math.cos(a) * dl;
