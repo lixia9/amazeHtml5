@@ -476,6 +476,7 @@ var env = {
 				l = 0;
 				buffered = false
 			}
+			var iii = 0
 			this.draw = function() {
 				if (l < 0) {
 					if (!buffered) {
@@ -485,13 +486,15 @@ var env = {
 					}
 					return 1;
 				} else {
-						
+				 	iii++;
 			     	if(env.isIos){
-						
+					if(iii%7==0){
 					 ctx.beginPath();
 					 ctx.moveTo(xp, yp)
-				     ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
-				     ctx.stroke();
+					 ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+					 ctx.stroke();	
+					}
+					
 // 						
 					}else{
 						ctx.moveTo(xp, yp)
