@@ -4,9 +4,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
 		<title></title>
+		<link rel="preload" href="./KATI.ttf" as="font" type="font/woff2">
 	</head>
 	<style type="text/css">
-
+		@font-face {
+			font-family: cyjianxk;
+			src: url('./KATI.ttf')
+		}
 
 		html,
 		body {
@@ -22,6 +26,7 @@
 		* {
 			margin: 0;
 			padding: 0;
+			font-family: cyjianxk, -apple-system, Helvetica, sans-serif;
 		}
 
 		.logo {
@@ -71,10 +76,7 @@
 
 		}
 
-		.main p {
-			font-family: -apple-system,Helvetica,sans-serif;
-
-		}
+		.main p {}
 
 		.footer {
 			position: absolute;
@@ -90,14 +92,14 @@
 			font-size: 14px;
 			line-height: 21px;
 			color: #c4c6dc;
-			font-family: -apple-system,Helvetica,sans-serif;
+
 		}
 
 		.footer p span {
 			font-size: 16px;
 			font-weight: 400;
 			color: #ddd;
-			font-family: -apple-system,Helvetica,sans-serif;
+
 		}
 
 		.footer_mtb10 {
@@ -118,11 +120,11 @@
 			font-size: 12px;
 			color: #c4c6dc;
 			z-index: 20;
-			font-family: -apple-system,Helvetica,sans-serif;
+
 		}
 
 		.footer_bottom {
-			font-family: -apple-system,Helvetica,sans-serif;
+
 			position: absolute;
 			left: 0;
 			right: 0;
@@ -151,7 +153,7 @@
 
 		.title span {
 			font-size: 32px;
-			font-family: -apple-system,Helvetica,sans-serif;
+
 			font-weight: 500;
 			color: #ddd;
 			transition: .25s;
@@ -161,7 +163,7 @@
 			position: absolute;
 			width: 100%;
 			left: 0;
-			font-family: -apple-system,Helvetica,sans-serif;
+
 			font-size: 32px;
 			text-shadow: 2px 2px 1px rgba(0, 0, 0, .4), 0 0 20px #42A5F5, 0 0 40px rgba(33, 150, 243, .75), 0 0 50px rgba(33, 150, 243, .75), 0 0 60px rgba(33, 150, 243, .75);
 		}
@@ -207,14 +209,14 @@
 		}
 
 		.jsfg {
-            
-			text-shadow: 2px 2px 1px rgba(0, 0, 0, .4), 0 0 20px #42A5F5, 0 0 40px rgba(33, 150, 243, .75), 0 0 50px rgba(33, 150, 243, .75), 0 0 60px rgba(33, 150, 243, .75);
-		    -webkit-animation: fadejsfg 5s infinite alternate;
-		    -moz-animation: fadejsfg 5s infinite alternate;
-		    -o-animation: fadejsfg 5s infinite alternate;
-		    animation: fadejsfg 5s infinite alternate;
 
-			
+			text-shadow: 2px 2px 1px rgba(0, 0, 0, .4), 0 0 20px #42A5F5, 0 0 40px rgba(33, 150, 243, .75), 0 0 50px rgba(33, 150, 243, .75), 0 0 60px rgba(33, 150, 243, .75);
+			-webkit-animation: fadejsfg 5s infinite alternate;
+			-moz-animation: fadejsfg 5s infinite alternate;
+			-o-animation: fadejsfg 5s infinite alternate;
+			animation: fadejsfg 5s infinite alternate;
+
+
 		}
 
 		button:nth-child(3):hover {
@@ -226,53 +228,53 @@
 		}
 
 		/*Animation*/
-		
-		
+
+
 		@-moz-keyframes fadejsfg {
 			0% {
 				opacity: 1;
 			}
-		
+
 			25% {
 				opacity: 0.5;
 			}
-		
+
 			50% {
 				opacity: 1;
 			}
-		
+
 			75% {
 				opacity: 0.5;
 			}
-		
+
 			100% {
 				opacity: 1;
 			}
 		}
-		
+
 		@-webkit-keyframes fadejsfg {
 			0% {
 				opacity: 1;
 			}
-					
+
 			25% {
 				opacity: 0.5;
 			}
-					
+
 			50% {
 				opacity: 1;
 			}
-					
+
 			75% {
 				opacity: 0.5;
 			}
-					
+
 			100% {
 				opacity: 1;
 			}
 		}
-		
-		
+
+
 		@-moz-keyframes fade {
 			40% {
 				opacity: 0.8;
@@ -375,7 +377,7 @@
 			<canvas id="middle"></canvas>
 		</div>
 
-		
+
 		<!-- <div class="footer_left">科<br />技<br /><br />让<br />金<br />融<br />更<br />美<br />好</div> -->
 		<div class="footer">
 			<p>诚邀您于</p>
@@ -749,7 +751,7 @@
 				l = 0;
 				buffered = false
 			}
-		
+
 			this.draw = function() {
 				if (l < 0) {
 					if (!buffered) {
@@ -759,20 +761,20 @@
 					}
 					return 1;
 				} else {
-				
-					
-					 if(env.isIos){
-						 ctx.beginPath();
-						 ctx.moveTo(xp, yp)
-						 ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
-						 ctx.strokeStyle = "lightblue";
-						 ctx.lineWidth = 1;
-						 ctx.stroke();
-					 }	else{
-						 ctx.moveTo(xp, yp)
-						 ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
-					 }	
-				
+
+
+					if (env.isIos) {
+						ctx.beginPath();
+						ctx.moveTo(xp, yp)
+						ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+						ctx.strokeStyle = "lightblue";
+						ctx.lineWidth = 1;
+						ctx.stroke();
+					} else {
+						ctx.moveTo(xp, yp)
+						ctx.lineTo(xp + Math.cos(a) * l, yp + Math.sin(a) * l);
+					}
+
 					a += da;
 					l += Math.cos(a) * dl;
 					return 0;
