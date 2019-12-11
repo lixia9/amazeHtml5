@@ -583,12 +583,15 @@
 	var status = 0;
 
 	window.onload = function(){
-		init('科技无限', "middle")
+		
 		$("#span").typed({
 			stringsElement: $("#typedStrings"),
 			typeSpeed: 70,
 			showCursor: false,
-			contentType: "html"
+			contentType: "html",
+			callback:function(){
+				init('科技无限', "middle");
+			}
 		});
 		
 	}
