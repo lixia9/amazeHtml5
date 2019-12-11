@@ -563,13 +563,7 @@
 		isAndroid: UA.indexOf('android') > 0,
 		isIos: /iphone|ipad|ipod|ios/.test(UA),
 	};
-	$("#span").typed({
-		stringsElement: $("#typedStrings"),
-		typeSpeed: 70,
-		showCursor: false,
-		contentType: "html"
-	});
-
+	
 	// print()
 	var colors = [
 		["blue", "#2196F3"]
@@ -588,7 +582,16 @@
 
 	var status = 0;
 
-	init('科技无限', "middle")
+	window.onload = function(){
+		init('科技无限', "middle")
+		$("#span").typed({
+			stringsElement: $("#typedStrings"),
+			typeSpeed: 70,
+			showCursor: false,
+			contentType: "html"
+		});
+		
+	}
 
 	function init(txt, id) {
 
